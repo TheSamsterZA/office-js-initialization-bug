@@ -1,0 +1,24 @@
+{
+  "name": "office-js-initialization-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -p 3000 -S -C ssl/cert.pem -K ssl/cert.key",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate-manifest": "npx office-addin-validator ./manifest.xml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSamsterZA/office-js-initialization-bug.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheSamsterZA/office-js-initialization-bug/issues"
+  },
+  "homepage": "https://github.com/TheSamsterZA/office-js-initialization-bug#readme",
+  "devDependencies": {
+    "http-server": "0.11.1"
+  }
+}

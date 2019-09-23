@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>OfficeJS Initialization Bug</title>
+    <base href="/">
+</head>
+
+<body>
+
+    <script src="//appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script type="text/javascript">
+        Office.onReady()
+            .then(({ host, platform }) => {
+                if (host != null && platform != null) {
+                    console.log(`[INIT] OfficeJS load complete: `, host, platform);
+                }
+                else {
+                    console.warn(`[INIT] OfficeJS loaded, but not in a valid host and platform!`);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    </script>
+
+</body>
+
+</html>
