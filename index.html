@@ -11,7 +11,9 @@
     <script src="//appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
     <script type="text/javascript">
         Office.onReady()
-            .then(({ host, platform }) => {
+            .then(function (result) {
+                host = result && result.host;
+                platform = result && result.platform;
                 if (host != null && platform != null) {
                     console.log("[INIT] OfficeJS load complete: " + host + " " + platform);
                     document.querySelector("#main").textContent = "SUCCESS: OfficeJS loaded on " + host + " " + platform;
@@ -21,7 +23,7 @@
                     document.querySelector("#main").textContent = "WARNING: OfficeJS loaded, but this is not a valid host/platform!";
                 }
             })
-            .catch((error) => {
+            .catch(function (error) {
                 console.error(error);
                 document.querySelector("#main").textContent = "ERROR: " + JSON.stringify(error, null, 2);
             });
