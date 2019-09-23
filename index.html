@@ -13,16 +13,23 @@
         Office.onReady()
             .then(({ host, platform }) => {
                 if (host != null && platform != null) {
-                    console.log(`[INIT] OfficeJS load complete: `, host, platform);
+                    console.log("[INIT] OfficeJS load complete: " + host + " " + platform);
+                    document.querySelector("#main").textContent = "SUCCESS: OfficeJS loaded on " + host + " " + platform;
                 }
                 else {
-                    console.warn(`[INIT] OfficeJS loaded, but not in a valid host and platform!`);
+                    console.warn("[INIT] OfficeJS loaded, but not in a valid host and platform!");
+                    document.querySelector("#main").textContent = "WARNING: OfficeJS loaded, but this is not a valid host/platform!";
                 }
             })
             .catch((error) => {
                 console.error(error);
+                document.querySelector("#main").textContent = "ERROR: " + JSON.stringify(error, null, 2);
             });
     </script>
+
+    <div id="main">
+        Loading...
+    </div>
 
 </body>
 
